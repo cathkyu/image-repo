@@ -17,5 +17,6 @@ class Images(models.Model):
             url = ''
         return url
     
-    # def get_absolute_url(self):
-    #     return f"/product/{self.id}/"
+    @property
+    def get_delete_url(self):
+        return f"/delete/{self.id}/"

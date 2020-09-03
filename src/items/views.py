@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 
 from .models import Images
@@ -13,7 +13,6 @@ def home_view(request):
     return render(request, "home.html", context)
 
 def create_view(request):
-    
     # form = ImageForm(request.POST or None)
     form = ImageForm(request.POST, request.FILES)
 
@@ -26,3 +25,15 @@ def create_view(request):
     }
 
     return render(request, "create.html", context)
+
+def delete_view(request, id):
+    obj = get_object_or_404(Images, id=id)
+
+    if request.method=="POST":
+        obj.delete()
+        return redirect(reverse('home'))
+
+    context = {
+        'object': obj
+    }
+    return render(request, "delete.html", context)

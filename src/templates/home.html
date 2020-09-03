@@ -25,6 +25,7 @@
         <td>${{ instance.price }}</td>
         <td><img src="{{ instance.imageURL }}" style="width:200px"></td>
         <td>{{ instance.quantity }}</td>
+        <td><a href="{{ instance.get_delete_url }}">Delete</a></td>
     </tr>
     {% endfor %}
 </table>
