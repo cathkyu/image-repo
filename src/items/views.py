@@ -37,3 +37,20 @@ def delete_view(request, id):
         'object': obj
     }
     return render(request, "delete.html", context)
+
+def sell_view(request, id):
+    obj = get_object_or_404(Images, id=id)
+    
+    if obj.quantity > 0:
+        message = "Sell successful!"
+        obj.quantity -= 1
+        obj.save()
+    else:
+        message = "Sell failed, insufficient quantity."
+        
+    context = {
+        'object': obj,
+        'message': message
+    }
+
+    return render(request, "sell.html", context)

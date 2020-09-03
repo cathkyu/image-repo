@@ -5,7 +5,7 @@
     {% csrf_token %}
 
     <h2>Delete the image "{{ object.title }}"?</h2>
-    <p><input type='submit' value='Yes' />  <a href='../../../'>Cancel</a></p>
+    <p><input type='submit' value='Yes' />  <a href="{% url 'home' %}">Cancel</a></p>
 
 </form>
 {% endblock content %}

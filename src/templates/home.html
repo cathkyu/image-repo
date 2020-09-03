@@ -17,7 +17,7 @@
         <th>Price</th>
         <th>Image</th>
         <th>Quantity</th>
-        <th> </th>
+        
     </tr>
     {% for instance in object_list %}
     <tr>
@@ -25,6 +25,7 @@
         <td>${{ instance.price }}</td>
         <td><img src="{{ instance.imageURL }}" style="width:200px"></td>
         <td>{{ instance.quantity }}</td>
+        <td><strong><a href="{{ instance.get_sell_url }}">Sell</a></strong></td>
         <td><a href="{{ instance.get_delete_url }}">Delete</a></td>
     </tr>
     {% endfor %}

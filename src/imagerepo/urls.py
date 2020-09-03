@@ -24,5 +24,5 @@ urlpatterns = [
     path('', home_view, name='home'),
     path('create/', create_view, name='create'),
     path('delete/<int:id>/', delete_view, name='delete'),
-
+    path('sell/<int:id>/', sell_view, name='sell'),
 ]

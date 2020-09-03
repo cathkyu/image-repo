@@ -20,3 +20,7 @@ class Images(models.Model):
     @property
     def get_delete_url(self):
         return f"/delete/{self.id}/"
+
+    @property
+    def get_sell_url(self):
+        return f"/sell/{self.id}/"
