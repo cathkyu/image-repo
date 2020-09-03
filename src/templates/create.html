@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method='POST' action='.' enctype='multipart/form-data'> 
+    {% csrf_token %}
+
+    {{ form.as_p }} <!-- render form -->
+
+    <input type='submit' value='Save'> <a href="{% url 'home' %}">Go Back</a>
+</form>
+{% endblock content %}
