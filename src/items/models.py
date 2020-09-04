@@ -10,9 +10,7 @@ class Images(models.Model):
     @property
     def imageURL(self):
         try:
-
             url = './static' + self.image.url
-            
         except:
             url = ''
         return url
@@ -24,3 +22,7 @@ class Images(models.Model):
     @property
     def get_sell_url(self):
         return f"/sell/{self.id}/"
+
+class Money(models.Model):
+    total = models.DecimalField(decimal_places=2, max_digits=100, default=0)
+    discount = models.IntegerField(default=0)

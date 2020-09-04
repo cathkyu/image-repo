@@ -9,6 +9,10 @@
     }
     </style>
 
+<p>Money earned from sellings: <strong>{{ money.total }}</strong> </p>
+<p>Earnings with a discount of {{ money.discount }}% off: <strong>{{ discount_total|floatformat:2 }}</strong> </p>
+Apply a discount (%): 
+<hr>
 <p>To add a new image to sell: <a href="{% url 'create' %}">Create</a></p>
 
 <table>
@@ -17,7 +21,6 @@
         <th>Price</th>
         <th>Image</th>
         <th>Quantity</th>
-        
     </tr>
     {% for instance in object_list %}
     <tr>
