@@ -18,11 +18,13 @@ The project has the following features:
 
 2. Next, run `cd src`
 
-3. Then, run `python3 server.py runserver`
+3. You may need to run `pip install django` and `pip install pillow` if not already installed (run `pip freeze` to see installed modules).
 
-4. After starting the server, open a web browser at the specified address. By default, the server runs on port 8000 on the IP address 127.0 (http://127.0.0.1:8000/).
+4. Then, run `python3 manage.py runserver`
 
-5. To deactivate the virtual env, run `deactivate`
+5. After starting the server, open a web browser at the specified address. By default, the server runs on port 8000 on the IP address 127.0 (http://127.0.0.1:8000/).
+
+6. To deactivate the virtual env, run `deactivate`
 
 ### :thought_balloon: Thoughts & Improvements
 
