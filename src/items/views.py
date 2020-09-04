@@ -2,19 +2,25 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 
 from .models import Images, Money
-from .forms import ImageForm
+from .forms import ImageForm, DiscountForm
 
 # Create your views here.
 def home_view(request):
     queryset = Images.objects.all()
     money = Money.objects.get(id=1)
+    form = DiscountForm(request.POST or None, instance=money)
 
     discount_total = float(money.total) * (1 - (float(money.discount) * 0.01))
+
+    if form.is_valid():
+        form.save()
+        return redirect(reverse('home'))
 
     context = {
         "object_list": queryset,
         "money": money,
-        "discount_total": discount_total
+        "discount_total": discount_total,
+        "form": form
     }
     return render(request, "home.html", context)
 
