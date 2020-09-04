@@ -9,8 +9,8 @@
     }
     </style>
 
-<p>Money earned from sellings: <strong>{{ money.total }}</strong> </p>
-<p>Earnings with a discount of {{ money.discount }}% off: <strong>{{ discount_total|floatformat:2 }}</strong> </p>
+<p>Money earned from sellings: <strong>${{ money.total }}</strong> </p>
+<p>Earnings with a discount of {{ money.discount }}% off: <strong>${{ discount_total|floatformat:2 }}</strong> </p>
 
 <form method='POST' action='.' enctype='multipart/form-data'> 
     {% csrf_token %}
@@ -31,6 +31,8 @@
         <th>Image</th>
         <th>Quantity</th>
     </tr>
+
+    <!-- Dynamically display the images to sell -->
     {% for instance in object_list %}
     <tr>
         <td>{{ instance.title }}</td>

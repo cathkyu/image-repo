@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+# Image model to store title, quantity, price, and picture
 class Images(models.Model):
     title = models.CharField(max_length=100)
     quantity = models.IntegerField()
@@ -23,6 +23,7 @@ class Images(models.Model):
     def get_sell_url(self):
         return f"/sell/{self.id}/"
 
+# Money model to store the total earnings and discount
 class Money(models.Model):
     total = models.DecimalField(decimal_places=2, max_digits=100, default=0)
     discount = models.IntegerField(default=0)

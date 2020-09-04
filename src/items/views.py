@@ -4,14 +4,16 @@ from django.urls import reverse
 from .models import Images, Money
 from .forms import ImageForm, DiscountForm
 
-# Create your views here.
+# View to render main page
 def home_view(request):
     queryset = Images.objects.all()
     money = Money.objects.get(id=1)
     form = DiscountForm(request.POST or None, instance=money)
 
+    # Calculate the total with discount applied
     discount_total = float(money.total) * (1 - (float(money.discount) * 0.01))
 
+    # Save the form discount value if valid
     if form.is_valid():
         form.save()
         return redirect(reverse('home'))
@@ -24,8 +26,8 @@ def home_view(request):
     }
     return render(request, "home.html", context)
 
+# View to create new image to sell
 def create_view(request):
-    # form = ImageForm(request.POST or None)
     form = ImageForm(request.POST, request.FILES)
 
     if form.is_valid():
@@ -38,6 +40,7 @@ def create_view(request):
 
     return render(request, "create.html", context)
 
+# View to delete an image from the database
 def delete_view(request, id):
     obj = get_object_or_404(Images, id=id)
 
@@ -50,10 +53,12 @@ def delete_view(request, id):
     }
     return render(request, "delete.html", context)
 
+# View to sell an image and update the money earned
 def sell_view(request, id):
     obj = get_object_or_404(Images, id=id)
     money = Money.objects.get(id=1)
     
+    # When selling an image, its quantity decreases and earnings increases by the image price
     if obj.quantity > 0:
         message = "Sell successful!"
         obj.quantity -= 1
@@ -71,6 +76,7 @@ def sell_view(request, id):
 
     return render(request, "sell.html", context)
 
+# View to reset the earnings and discount values
 def reset_view(request):
     money = Money.objects.get(id=1)
 
