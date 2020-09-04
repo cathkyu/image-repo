@@ -30,7 +30,7 @@ The project has the following features:
 
 An improvement to this project could be to use cookies to keep track of images sold and to handle the money, rather than creating a separate money model in the database to store these variables. 
 
-This project is based on a seller perspective, giving them full control on image objects to sell and money. Considering that, the project could be use different user access control for customers with user authentication. The customers would have a different view (with less freedom) to buy images using payment information linked to their user account.
+This project is based on a seller perspective, giving them full control on image objects to sell and money. Considering that, the project could be improved by having different user access control for customers with user authentication. The customers would have a different view (with less freedom) to buy images using payment information linked to their user account.
 
 ### :zap: Extras
 
