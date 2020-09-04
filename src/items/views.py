@@ -64,3 +64,16 @@ def sell_view(request, id):
     }
 
     return render(request, "sell.html", context)
+
+def reset_view(request):
+    money = Money.objects.get(id=1)
+
+    money.total = 0
+    money.discount = 0
+    money.save()
+
+    context = {
+        'money': money
+    }
+
+    return render(request, "reset.html", context)
