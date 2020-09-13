@@ -32,6 +32,9 @@ An improvement to this project could be to use cookies to keep track of images s
 
 This project is based on a seller perspective, giving them full control on image objects to sell and money. Considering that, the project could be improved by having different user access control for customers with user authentication. The customers would have a different view (with less freedom) to buy images using payment information linked to their user account.
 
-### :zap: Extras
+### :zap: Next Steps
 
-If you'd like, you can look at the objects in the database from Django admin (http://127.0.0.1:8000/admin) with username: `shopify` and password: `challenge` :)
+- Authentication
+- Create unit tests
+- More error checking
+- Use of Cookies
